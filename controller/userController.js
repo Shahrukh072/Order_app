@@ -1,7 +1,7 @@
 const User = require("../model/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { checkout } = require("../routes/userRoutes");
+
 
 exports.Add_User = async (req, res) => {
   try {
@@ -53,30 +53,30 @@ exports.Login_User = async (req, res) => {
   }
 };
 
-// exports.Add_Order = async (req, res) => {
-//   try {
+exports.Add_Order = async (req, res) => {
+  try {
     
-//     Add_Order = user_id = req => mobileNo;
-//     Add_Order =  sub_total = req => Pay_total;
-//     const user = await User.findOne({ mobileNo: req.body.mobileNo });
-//     if (user) {
-//       return res.status(400).json({ message: "User already exists" });
-//     }
+    Add_Order = user_id = req => mobileNo;
+    Add_Order =  sub_total = req => Pay_total;
+    const user = await User.findOne({ mobileNo: req.body.mobileNo });
+    if (user) {
+      return res.status(400).json({ message: "User already exists" });
+    }
 
-//     const newUser = await User.create(req.body);
+    const newUser = await User.create(req.body);
 
-//     if (!newUser) {
-//       return res.status(400).json({ message: "User creation failed" });
-//     }
-//     return res.status(200).json({ message: "User created successfully" });
+    if (!newUser) {
+      return res.status(400).json({ message: "User creation failed" });
+    }
+    return res.status(200).json({ message: "User created successfully" });
     
    
-//   } catch (err) {
-//     return res
-//       .status(500)
-//       .json({ error: err, message: "Internal Server Error" });
-//   }
-// };
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error: err, message: "Internal Server Error" });
+  }
+};
 
 exports.testApi =  (req, res) => {
   console.log('test api');
